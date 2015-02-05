@@ -14,7 +14,11 @@ class Orders extends MY_Model {
 
     // add an item to an order
     function add_item($num, $code) {
-        
+        if($this->orders->excist('code', $code))
+        {
+            
+            
+        }
     }
 
     // calculate the total for an order
