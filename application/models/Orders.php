@@ -61,9 +61,9 @@ class Orders extends MY_Model {
     // validate an order
     // it must have at least one item from each category
     function validate($num) {
-        $catagories = array();
-        $items = $this->orderitems->group($num);
         
+        $items = $this->orderitems->group($num);
+        $gotem = array();
         
         //Goes through all items and checks the catagory.
         //Sets the catagory to 1 if it has it.
@@ -72,13 +72,13 @@ class Orders extends MY_Model {
             foreach ($items as $item)
             {
                 $menu = $this->menu->get($item->item);
-                $catagories[$menu->category] = 1;
+                $gotem[$menu->category] = 1;
             }
         }
         
         //Returns true if all the catagories have a 1
         //else it returns false.
-        return isset($catagories['m']) && isset($catagories['d']) && isset($catagories['s']);
+        return isset($gotem['m']) && isset($gotem['d']) && isset($gotem['s']);
     }
 
 }

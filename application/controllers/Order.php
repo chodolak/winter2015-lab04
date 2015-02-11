@@ -94,7 +94,7 @@ class Order extends Application {
         $this->render();
     }
 
-    function proceed($order_num) {
+    function commit($order_num) {
         //If cart isn't valide go back.
         if (!$this->orders->validate($order_num))
         {
